@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GreenTech</title>
+    <link rel="stylesheet" href="3login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="leaf-container">
+            <i class="fas fa-leaf leaf leaf-1"></i>
+            <i class="fas fa-leaf leaf leaf-2"></i>
+            <i class="fas fa-leaf leaf leaf-3"></i>
+            <i class="fas fa-leaf leaf leaf-4"></i>
+            <i class="fas fa-leaf leaf leaf-5"></i>
+            <div class="app-name">GreenTech</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content hidden">
+        <!-- Navigation -->
+        <nav class="navbar animate__animated animate__fadeIn">
+            <div class="logo">
+                <i class="fas fa-leaf animate__animated animate__fadeIn"></i>
+                <span>GreenTech</span>
+            </div>
+        </nav>
+
+        <!-- Login Section -->
+        <section class="login-section">
+            <div class="login-container animate__animated animate__fadeInUp">
+                <div class="login-header">
+                    <h2 class="animate__animated animate__fadeInDown">Welcome</h2>
+                    <p class="animate__animated animate__fadeInDown animate__delay-1s">Please login to continue</p>
+                </div>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="name">Full Name</label>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" required placeholder="Enter your full name">
+                        </div>
+                    </div>
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" required placeholder="Enter your password">
+                            <i class="fas fa-eye-slash toggle-password"></i>
+                        </div>
+                    </div>
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="city">Select City</label>
+                        <div class="input-group">
+                            <i class="fas fa-city"></i>
+                            <select id="city" required>
+                                <option value="">Choose your city</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="pune">Pune</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="kolkata">Kolkata</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="municipal">Municipal Corporation</label>
+                        <div class="input-group">
+                            <i class="fas fa-building"></i>
+                            <select id="municipal" required>
+                                <option value="">Select Municipal Corporation</option>
+                                <option value="brihanmumbai">Brihanmumbai Municipal Corporation</option>
+                                <option value="pmc">Pune Municipal Council</option>
+                                <option value="bbmp">Bruhat Bengaluru Mahanagara Palike</option>
+                                <option value="gcc">Greater Chennai Corporation</option>
+                                <option value="kmc">Kolkata Municipal Corporation</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="complaintType">Complaint Type</label>
+                        <div class="input-group">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <select id="complaintType" required>
+                                <option value="">Select complaint type</option>
+                                <option value="garbage">Garbage Issue</option>
+                                <option value="water">Water Issue</option>
+                                <option value="sanitation">Sanitation Issue</option>
+                                <option value="road">Road Issue</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group animate__animated animate__fadeInLeft animate__delay-1s">
+                        <label for="description">Description</label>
+                        <div class="input-group">
+                            <i class="fas fa-comment-alt"></i>
+                            <textarea id="description" rows="4" required placeholder="Please describe your issue in detail..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn animate__animated animate__fadeInUp animate__delay-2s" id="index">
+                        <span>Login</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="login-footer animate__animated animate__fadeInUp animate__delay-2s">
+                    <p>Don't have an account? <a href="#" id="showSignup" class="signup-link">Sign Up</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="2login.js"></script>
+</body>
+</html> 

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTech - Trash Collection Reward System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <span>GreenTech</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#rewards">Rewards</a>
+            <a href="#upload">Upload</a>
+            <a href="#leaderboard">Leaderboard</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>GreenTech</h1>
+            <p>Join the movement to make our planet cleaner and greener. Upload your trash collection photos and earn rewards!</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="counter" id="totalTrash">0</div>
+                    <p>Total Trash Collected</p>
+                </div>
+                <div class="stat-item">
+                    <div class="counter" id="activeUsers">0</div>
+                    <p>Active Users</p>
+                </div>
+                <div class="stat-item">
+                    <div class="counter" id="totalPoints">0</div>
+                    <p>Total Points Earned</p>
+                </div>
+            </div>
+            <button class="cta-btn" id="startEarning">Start Earning Points</button>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="upload-section">
+        <h2>Upload Your Trash Collection</h2>
+        <div class="upload-container">
+            <div class="upload-area" id="dropZone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Drag & Drop your image here or</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                    Choose File
+                </button>
+                <p class="file-info">Supported formats: JPG, PNG</p>
+            </div>
+            <div class="upload-preview" id="previewContainer">
+                <img id="previewImage" src="" alt="" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section id="rewards" class="rewards-section">
+        <h2>Your Rewards</h2>
+        <div class="rewards-container">
+            <div class="points-card">
+                <div class="points-header">
+                    <i class="fas fa-star"></i>
+                    <h3>Your Points</h3>
+                </div>
+                <div class="points-value" id="userPoints">0</div>
+                <div class="points-history">
+                    <h4>Recent Activity</h4>
+                    <ul id="pointsHistory">
+                        <!-- Points history will be populated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+            <div class="rewards-catalog">
+                <h3>Available Rewards</h3>
+                <div class="rewards-grid" id="rewardsGrid">
+                    <!-- Rewards will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redeemed Items Section -->
+    <section class="redeemed-section">
+        <h2>Your Redeemed Items</h2>
+        <div class="redeemed-container">
+            <div class="redeemed-list" id="redeemedList">
+                <!-- Redeemed items will be populated by JavaScript -->
+            </div>
+            <div class="redeemed-stats">
+                <div class="stat-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Total Items Redeemed</h3>
+                    <span class="counter" id="totalRedeemed">0</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Points Spent</h3>
+                    <span class="counter" id="totalPointsSpent">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard-section">
+        <h2>Top Contributors</h2>
+        <div class="leaderboard-container">
+            <div class="leaderboard-tabs">
+                <button class="tab-btn active" data-period="weekly">Weekly</button>
+                <button class="tab-btn" data-period="monthly">Monthly</button>
+                <button class="tab-btn" data-period="all-time">All Time</button>
+            </div>
+            <div class="leaderboard-list" id="leaderboardList">
+                <!-- Leaderboard will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>123 Eco Street, Green City, 12345</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>support@GreenTech.com</p>
+                </div>
+            </div>
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Refer a Friend Section -->
+    <section class="refer-section">
+        <div class="refer-container">
+            <div class="refer-content">
+                <h2>Refer a Friend & Earn Points</h2>
+                <p>Share the joy of making a difference! Invite your friends to join GreenTech and earn bonus points when they sign up.</p>
+                <div class="refer-form">
+                    <div class="form-group">
+                        <input type="email" id="friendEmail" placeholder="Enter your friend's email">
+                    </div>
+                    <button class="refer-btn" id="referBtn">
+                        <span>Send Invitation</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="refer-rewards">
+                    <div class="reward-item">
+                        <i class="fas fa-gift"></i>
+                        <span>Earn 50 points</span>
+                    </div>
+                    <div class="reward-item">
+                        <i class="fas fa-users"></i>
+                        <span>Your friend gets 25 points</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>GreenTech</h3>
+                <p>Making the world cleaner, one reward at a time.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#rewards">Rewards</a>
+                <a href="#upload">Upload</a>
+                <a href="#leaderboard">Leaderboard</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: support@GreenTech.com</p>
+                <p>Phone: (91) 123456789</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GreenTech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

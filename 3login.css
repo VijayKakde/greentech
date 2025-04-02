@@ -1,0 +1,428 @@
+/* Global Styles */
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+    --text-color: #2c3e50;
+    --light-gray: #ecf0f1;
+    --border-color: #bdc3c7;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.logo i {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover i {
+    transform: scale(1.1);
+}
+
+/* Login Section Styles */
+.login-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem 2rem;
+}
+
+.login-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    animation: float 3s ease-in-out;
+    animation-iteration-count: 1;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.input-group:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+}
+
+.input-group i {
+    color: #666;
+    margin-right: 0.5rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: var(--text-color);
+    background: transparent;
+}
+
+.input-group textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+.toggle-password {
+    cursor: pointer;
+    transition: color var(--transition-speed) ease;
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+/* Button Styles */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.submit-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer Styles */
+.login-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+}
+
+.signup-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed) ease;
+}
+
+.signup-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 2rem;
+    }
+
+    .login-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .input-group {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Custom Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Form Validation Styles */
+.form-group.error .input-group {
+    border-color: var(--error-color);
+}
+
+.form-group.success .input-group {
+    border-color: var(--success-color);
+}
+
+/* Loading State */
+.submit-btn.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.leaf-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.app-name {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -40px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.leaf {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.leaf-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: leafDrop1;
+}
+
+.leaf-2 {
+    top: 25%;
+    left: 0;
+    animation-name: leafDrop2;
+    animation-delay: 0.2s;
+}
+
+.leaf-3 {
+    top: 25%;
+    right: 0;
+    animation-name: leafDrop3;
+    animation-delay: 0.4s;
+}
+
+.leaf-4 {
+    bottom: 25%;
+    left: 25%;
+    animation-name: leafDrop4;
+    animation-delay: 0.6s;
+}
+
+.leaf-5 {
+    bottom: 25%;
+    right: 25%;
+    animation-name: leafDrop5;
+    animation-delay: 0.8s;
+}
+
+@keyframes leafDrop1 {
+    0% {
+        transform: translateX(-50%) translateY(-100%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes leafDrop2 {
+    0% {
+        transform: translate(-100%, -100%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes leafDrop3 {
+    0% {
+        transform: translate(100%, -100%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(-360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes leafDrop4 {
+    0% {
+        transform: translate(-100%, 100%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(-360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes leafDrop5 {
+    0% {
+        transform: translate(100%, 100%) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.main-content.visible {
+    opacity: 1;
+} 
